@@ -11,7 +11,7 @@ libraryDependencies += "com.google.guava" % "guava" % "14.0.1"
 Keys.`package` <<=
   (baseDirectory, packagedArtifact in (Compile, packageBin), dependencyClasspath in Runtime,
     Keys.`package` in Compile).map { (base, art, rcp, p) =>
-      IO.write(base / "target" / "appJar", art._2.getPath)
-      IO.write(base / "target" / "userJars", (rcp).files.mkString(","))
+      IO.write(base / "target" / "appJar", "file:" + art._2.getPath)
+      IO.write(base / "target" / "userJars", (rcp).files.map(x => "file:" + x).mkString(","))
       p
   }
