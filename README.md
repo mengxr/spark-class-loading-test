@@ -2,7 +2,7 @@ spark-class-loading-test
 ========================
 
 This project tests jar distribution and class loading in different deploy modes.
-Run the following command to start a test:
+Set `SPARK_HOME` environment variable and then run the following command to start a test:
 
 ~~~
 bin/run.sh <master> <deploy-mode>
